@@ -11,15 +11,18 @@ using Servicios.Servicios;
 using Servicios.Utils;
 
 
-namespace Servicos.Servicios
+namespace Servicios.Servicios
 {
     public class Servicios<TModelo>:IServicios<TModelo>
     {
         private String _urlBase;
 
-       
+        public Servicios(String url)
+        {
+            UrlBase = url;
+        }
 
-       public string UrlBase
+        public string UrlBase
         {
             get { return _urlBase; }
             set { _urlBase = value; }

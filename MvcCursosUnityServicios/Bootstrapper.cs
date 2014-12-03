@@ -4,7 +4,6 @@ using Microsoft.Practices.Unity;
 using MvcCursosUnityServicios.MisServicios;
 using MvcCursosUnityServicios.Models.ViewModels;
 using Servicios.Servicios;
-using Servicos.Servicios;
 using Unity.Mvc4;
 
 namespace MvcCursosUnityServicios
@@ -35,7 +34,12 @@ namespace MvcCursosUnityServicios
 
     public static void RegisterTypes(IUnityContainer container)
     {
-        container.RegisterType<IServicios<CursoViewModel>, ServicioCursos>();
+        container.RegisterType<IServicios<CursoViewModel>, ServicioCursos>(
+            new InjectionConstructor("http://localhost:53302/v1/curso")
+            );
+        container.RegisterType
+            <IServicios<ProfesorVievModel>, Servicios<ProfesorVievModel>>
+            (new InjectionConstructor("http://localhost:53302/v1/profesor"));
     }
   }
 }

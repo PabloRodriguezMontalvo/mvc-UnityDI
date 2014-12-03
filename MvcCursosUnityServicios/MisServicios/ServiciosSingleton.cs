@@ -15,7 +15,7 @@ namespace MvcCursosUnityServicios.MisServicios
             get
             {
                 if(_servicio==null)
-                    _servicio=new ServicioCursos();
+                    _servicio=new ServicioCursos("");
                 
                 return _servicio;
             }
